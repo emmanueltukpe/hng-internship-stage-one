@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 
-const data = { "slackUsername": "tukpe emmanuel", "backend": false, "age": 16, "bio": "I love to code" }
+const data = { "slackUsername": "emmanuel tukpe", "backend": false, "age": 25, "bio": "I love to code" }
 
 app.get('/', (req, res) => {
     res.status(StatusCodes.OK).json( data );
