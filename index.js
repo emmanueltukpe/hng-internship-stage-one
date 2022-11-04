@@ -22,7 +22,7 @@ app.post("/", (req, res) => {
   const { operation_type, x, y } = req.body;
   var result;
 
-  switch (operation_type.value) {
+  switch (operation_type) {
     case "addition":
       result = x + y;
       break;
@@ -40,7 +40,7 @@ app.post("/", (req, res) => {
 
   let response = {
     slackUsername: data.slackUsername,
-    "operation type": operation_type.value,
+    "operation type": operation_type,
     result,
   };
   res.status(StatusCodes.OK).json(response);
