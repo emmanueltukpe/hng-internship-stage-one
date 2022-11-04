@@ -19,10 +19,10 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  const { operation, x, y } = req.body;
+  const { operation_type, x, y } = req.body;
   var result;
 
-  switch (operation.value) {
+  switch (operation_type.value) {
     case "addition":
       result = x + y;
       break;
@@ -40,7 +40,7 @@ app.post("/", (req, res) => {
 
   let response = {
     slackUsername: data.slackUsername,
-    operation_type: operation.value,
+    "operation type": operation_type.value,
     result,
   };
   res.status(StatusCodes.OK).json(response);
