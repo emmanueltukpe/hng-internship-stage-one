@@ -19,10 +19,10 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  const { operation_type, x, y } = req.body;
+  const { operation, x, y } = req.body;
   var result;
 
-  switch (operation_type.value) {
+  switch (operation.value) {
     case "addition":
       result = x + y;
       break;
@@ -34,13 +34,13 @@ app.post("/", (req, res) => {
       break;
     default:
       "Please enter a valid operation: addition, subtraction, multiplication";
-      result = "Invalid operation";
+      result = 0;
       break;
   }
 
   let response = {
     slackUsername: data.slackUsername,
-    operation_type: operation_type.value,
+    operation_type: operation.value,
     result,
   };
   res.status(StatusCodes.OK).json(response);
