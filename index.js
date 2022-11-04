@@ -40,7 +40,7 @@ app.post("/", (req, res) => {
 
   let response = {
     slackUsername: data.slackUsername,
-    "operation type": operation_type,
+    operation_type: operation_type,
     result,
   };
   res.status(StatusCodes.OK).json(response);
